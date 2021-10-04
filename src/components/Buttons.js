@@ -27,15 +27,17 @@ export default function Buttons({ count, setCount }) {
 
     return (
         <div className="mt-6 mx-4">
-            <h4 className="text-center text-white text-xl font-bold mb-6 ">Round {round}</h4>
-            <div className="flex mb-4">
-                <Button label="-" classNames="bg-gray-600" onClick={handleDestroy} />
-                <Button label="+" classNames="bg-gray-600" onClick={handleGain} />
+            <div className="mb-4 text-4xl">
+                <h4 className="text-center text-white text-xl font-bold mb-6 ">Round {round}</h4>
             </div>
-            <div className="flex mb-6 mt-6 w-full">
+            <div className="flex mt-16 mb-4 text-4xl">
+                <Button label="-" classNames="bg-green-600" onClick={handleDestroy} />
+                <Button label="+" classNames="bg-green-600" onClick={handleGain} />
+            </div>
+            <div className="flex mb-12 mt-6 w-full">
                 <Button
                     label="New Round"
-                    classNames="bg-gray-600 w-full"
+                    classNames="bg-green-900 w-full"
                     onClick={handleNextRound}
                 />
             </div>
@@ -43,7 +45,7 @@ export default function Buttons({ count, setCount }) {
                 <div className="flex w-full">
                     <Button
                         label="New Arena"
-                        classNames="bg-red-900 w-full"
+                        classNames="bg-gray-600 w-full"
                         onClick={handleNewGame}
                     />
                 </div>
