@@ -45,7 +45,7 @@ export default function Buttons({ count, setCount }) {
                 <div className="flex w-full">
                     <Button
                         label="New Arena"
-                        classNames="bg-gray-700 w-full"
+                        classNames="bg-gray-800 w-full"
                         onClick={handleNewArena}
                     />
                 </div>
