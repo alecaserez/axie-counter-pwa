@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import P from 'prop-types'
 import Button from './Button'
+import PullToRefresh from 'react-simple-pull-to-refresh'
+
 
 export default function Buttons({ count, setCount }) {
     const [round, setRound] = useState(1)
@@ -20,19 +22,21 @@ export default function Buttons({ count, setCount }) {
         setRound((r) => r + 1)
     }
 
-    const handleNewArena = () => {
-        setCount(3)
-        setRound(1)
-    }
+    const handleNewArena = () => new Promise((resolve, reject) => {
+        setCount(3);
+        setRound(1);
+        resolve(true);  
+    }); 
 
     return (
-        <div className="mt-6 mx-4 w-full lg:w-1/2">
+        <div className="mt-6 mx-4 w-full lg:w-1/2 h-screen">
+            <PullToRefresh onRefresh={handleNewArena}>
             <div className="mb-4 text-4xl">
                 <h4 className="text-center text-white text-xl font-bold mb-6 ">Round {round}</h4>
             </div>
             <div className="flex mt-16 mb-4 text-4xl">
-                <Button label="-" classNames="bg-green-600" onClick={handleSubs} />
-                <Button label="+" classNames="bg-green-600" onClick={handleAdd} />
+                <Button label="-" classNames="bg-green-600 h-auto" onClick={handleSubs} />
+                <Button label="+" classNames="bg-green-600 h-auto" onClick={handleAdd} />
             </div>
             <div className="flex mb-12 mt-6 w-full">
                 <Button
@@ -41,15 +45,7 @@ export default function Buttons({ count, setCount }) {
                     onClick={handleNextRound}
                 />
             </div>
-            <div className="flex mt-16">
-                <div className="flex w-full">
-                    <Button
-                        label="New Arena"
-                        classNames="bg-gray-800 w-full"
-                        onClick={handleNewArena}
-                    />
-                </div>
-            </div>
+            </PullToRefresh>
         </div>
     )
 }
