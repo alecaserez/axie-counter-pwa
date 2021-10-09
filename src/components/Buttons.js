@@ -29,14 +29,14 @@ export default function Buttons({ count, setCount }) {
     }); 
 
     return (
-        <div className="mt-6 mx-4 w-full lg:w-1/2 h-screen">
+        <div className="mt-6 mx-4 w-full lg:w-1/2">
             <PullToRefresh onRefresh={handleNewArena}>
             <div className="mb-4 text-4xl">
                 <h4 className="text-center text-white text-xl font-bold mb-6 ">Round {round}</h4>
             </div>
             <div className="flex mt-16 mb-4 text-4xl">
-                <Button label="-" classNames="bg-green-600 h-auto" onClick={handleSubs} />
-                <Button label="+" classNames="bg-green-600 h-auto" onClick={handleAdd} />
+                <Button label="-" classNames="bg-green-600" onClick={handleSubs} />
+                <Button label="+" classNames="bg-green-600" onClick={handleAdd} />
             </div>
             <div className="flex mb-12 mt-6 w-full">
                 <Button
