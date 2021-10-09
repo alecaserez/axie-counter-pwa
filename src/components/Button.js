@@ -5,7 +5,7 @@ export default function Button({ label, onClick, classNames }) {
         <button
             type="button"
             onClick={onClick}
-            className={`border-gray-900 bg-gray-900 py-6 text-white font-bold rounded-full w-1/2 mx-2 ${classNames}`}
+            className={`border-gray-900 py-6 text-white font-bold rounded-full w-1/2 mx-2 ${classNames}`}
         >
             {label}
         </button>

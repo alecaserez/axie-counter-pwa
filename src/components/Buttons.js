@@ -4,11 +4,11 @@ import Button from './Button'
 
 export default function Buttons({ count, setCount }) {
     const [round, setRound] = useState(1)
-    const handleDestroy = () => {
+    const handleSubs = () => {
         setCount((c) => c - 1)
     }
 
-    const handleGain = () => {
+    const handleAdd = () => {
         setCount((c) => c + 1)
     }
 
@@ -20,19 +20,19 @@ export default function Buttons({ count, setCount }) {
         setRound((r) => r + 1)
     }
 
-    const handleNewGame = () => {
+    const handleNewArena = () => {
         setCount(3)
         setRound(1)
     }
 
     return (
-        <div className="mt-6 mx-4">
+        <div className="mt-6 mx-4 w-full lg:w-1/2">
             <div className="mb-4 text-4xl">
                 <h4 className="text-center text-white text-xl font-bold mb-6 ">Round {round}</h4>
             </div>
             <div className="flex mt-16 mb-4 text-4xl">
-                <Button label="-" classNames="bg-green-600" onClick={handleDestroy} />
-                <Button label="+" classNames="bg-green-600" onClick={handleGain} />
+                <Button label="-" classNames="bg-green-600" onClick={handleSubs} />
+                <Button label="+" classNames="bg-green-600" onClick={handleAdd} />
             </div>
             <div className="flex mb-12 mt-6 w-full">
                 <Button
@@ -45,8 +45,8 @@ export default function Buttons({ count, setCount }) {
                 <div className="flex w-full">
                     <Button
                         label="New Arena"
-                        classNames="bg-gray-600 w-full"
-                        onClick={handleNewGame}
+                        classNames="bg-gray-700 w-full"
+                        onClick={handleNewArena}
                     />
                 </div>
             </div>
