@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import P from 'prop-types'
 import Button from './Button'
-import PullToRefresh from 'react-simple-pull-to-refresh'
-
 
 export default function Buttons({ count, setCount }) {
     const [round, setRound] = useState(1)
@@ -22,15 +20,13 @@ export default function Buttons({ count, setCount }) {
         setRound((r) => r + 1)
     }
 
-    const handleNewArena = () => new Promise((resolve, reject) => {
-        setCount(3);
-        setRound(1);
-        resolve(true);  
-    }); 
+    const handleNewArena = () => {
+        setCount(3)
+        setRound(1)
+    }
 
     return (
         <div className="mt-6 mx-4 w-full lg:w-1/2">
-            <PullToRefresh onRefresh={handleNewArena}>
             <div className="mb-4 text-4xl">
                 <h4 className="text-center text-white text-xl font-bold mb-6 ">Round {round}</h4>
             </div>
@@ -45,7 +41,15 @@ export default function Buttons({ count, setCount }) {
                     onClick={handleNextRound}
                 />
             </div>
-            </PullToRefresh>
+            <div className="flex mt-16">
+                <div className="flex w-full">
+                    <Button
+                        label="New Arena"
+                        classNames="bg-gray-700 w-full"
+                        onClick={handleNewArena}
+                    />
+                </div>
+            </div>
         </div>
     )
 }
